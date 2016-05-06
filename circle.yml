@@ -1,5 +1,6 @@
 checkout:
   post:
+    - mkdir circleci
     - git submodule add $GIT_URL circleci
     - git config -f .gitmodules submodule.v.branch $GIT_BRANCH
     - cd circleci && git checkout -b $GIT_BRANCH --track origin/$GIT_BRANCH
