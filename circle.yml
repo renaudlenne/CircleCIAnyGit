@@ -1,4 +1,7 @@
 checkout:
   post:
-    - git remote add -t \* -f circleci $GIT_URL
-    - git checkout circleci/$GIT_BRANCH
+    - git submodule add $GIT_URL circleci
+    - git config -f .gitmodules submodule.v.branch $GIT_BRANCH
+    - cd circleci && git checkout -b $GIT_BRANCH --track origin/$GIT_BRANCH
+general:
+  build_dir: circleci
