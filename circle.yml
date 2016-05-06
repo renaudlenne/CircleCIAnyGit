@@ -1,0 +1,4 @@
+checkout:
+  post:
+    - git remote add -t \* -f circleci $GIT_URL
+    - git checkout circleci/$GIT_BRANCH
